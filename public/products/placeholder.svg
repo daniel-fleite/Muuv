@@ -1,0 +1,8 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 900 1100" role="img" aria-label="Foto do produto será adicionada">
+  <rect width="900" height="1100" fill="#191919"/>
+  <circle cx="450" cy="420" r="210" fill="none" stroke="#333333" stroke-width="2"/>
+  <path d="M290 430h320" stroke="#B82440" stroke-width="5"/>
+  <path d="M345 390l105-70 105 70-105 70z" fill="none" stroke="#A5AAAA" stroke-width="5" stroke-linejoin="round"/>
+  <text x="450" y="760" fill="#FFFFFF" font-family="Arial, Helvetica, sans-serif" font-size="42" text-anchor="middle" letter-spacing="7">MUUV</text>
+  <text x="450" y="815" fill="#A5AAAA" font-family="Arial, Helvetica, sans-serif" font-size="20" text-anchor="middle" letter-spacing="4">FOTO DO MODELO</text>
+</svg>
