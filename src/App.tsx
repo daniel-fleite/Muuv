@@ -617,7 +617,6 @@ function Workshop() {
           <h2 id="workshop-title">Mobilidade elétrica também é <em>cuidado.</em></h2>
           <p>Na Muuv, o cuidado com a mobilidade vai além da escolha do veículo. Nossa oficina oferece serviços de manutenção para scooters elétricas, e-bikes e patinetes de diferentes marcas, com foco no cuidado, na segurança e no bom funcionamento de cada veículo.</p>
           <a className="button primary" href="https://wa.me/5515998299220?text=Ol%C3%A1%21%20Acessei%20o%20site%20da%20Muuv%20Sorocaba%20e%20gostaria%20de%20informa%C3%A7%C3%B5es%20sobre%20os%20servi%C3%A7os%20da%20oficina." target="_blank" rel="noreferrer">Fale com nossa oficina <Icon name="arrow" /></a>
-          <small>Área de vídeo provisória: depois, substitua a imagem por um vídeo em loop da oficina.</small>
         </div>
       </div>
     </section>
