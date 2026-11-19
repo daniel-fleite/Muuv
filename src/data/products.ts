@@ -135,7 +135,6 @@ export const products: Product[] = [
       {src: "/products/muuv-vespa-creme-tras.jpeg", alt: "MUUV GOO VESPA", color: "Creme"},
       {src: "/products/muuv-vespa-creme-painel.jpeg", alt: "MUUV GOO VESPA", color: "Creme"},
       {src: "/products/muuv-vespa-verde.jpeg", alt: "MUUV GOO VESPA", color: "Verde"},
-      {src: "/products/muuv-vespa-tras-verde.jpeg", alt: "MUUV GOO VESPA", color: "Verde"},
       {src: "/products/muuv-vespa-verde-detail.jpeg", alt: "MUUV GOO VESPA", color: "Verde"},
       {src: "/products/muuv-vespa-verde-zoom.jpeg", alt: "MUUV GOO VESPA", color: "Verde"},
     ],
