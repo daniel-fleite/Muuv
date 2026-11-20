@@ -1,4 +1,4 @@
-import { useEffect, useState } from "react"
+import { useEffect, useRef, useState } from "react"
 import { Category, categories, powerFilters, PowerFilter, Product, ProductImage, products } from "./data/products"
 import { UsedProduct, usedProducts } from "./data/usedProducts"
 
@@ -604,26 +604,70 @@ function About() {
 }
 
 
+const workshopFeatures = [
+  [
+    "1ª revisão preventiva gratuita",
+    "Revisão completa dos freios com limpeza do sistema, regulagem de pinça e pastilhas, sangria e troca de óleo. Cortesia válida até 8 meses após a compra.",
+  ],
+  ["Serviço leva e traz", "Buscamos e entregamos sua elétrica, com mais praticidade e comodidade para você."],
+  ["Estoque variado de peças", "Trabalhamos com peças de quase todas as marcas do segmento."],
+  ["Atendimento com agendamento", "Horário marcado para um serviço mais organizado e eficiente."],
+] as const
+
 function Workshop() {
+  const [started, setStarted] = useState(false)
+  const videoRef = useRef<HTMLVideoElement>(null)
+  const play = () => {
+    setStarted(true)
+    videoRef.current?.play()
+  }
   return (
     <section className="workshop section" id="oficina" aria-labelledby="workshop-title">
       <div className="shell workshop-grid">
-        <div className="workshop-media" role="img" aria-label="Área reservada para vídeo da oficina Muuv">
-          <img src="https://images.unsplash.com/photo-1486262715619-67b85e0b08d3?auto=format&fit=crop&w=1400&q=85" alt="Imagem ilustrativa provisória de uma oficina" loading="lazy" />
-          <div className="workshop-media-overlay"><span className="workshop-play"><Icon name="play" /></span><span>Vídeo da oficina em breve</span></div>
+        <div className="workshop-media">
+          <video
+            ref={videoRef}
+            src="/videos/oficina-muuv.mp4"
+            poster="/videos/oficina-muuv-poster.jpg"
+            controls={started}
+            playsInline
+            preload="metadata"
+            onPlay={() => setStarted(true)}
+            aria-label="Vídeo da oficina Muuv"
+          />
+          {!started && (
+            <button className="workshop-media-overlay" type="button" onClick={play} aria-label="Assistir ao vídeo da oficina Muuv">
+              <span className="workshop-play"><Icon name="play" /></span>
+              <span>Conheça nossa oficina</span>
+            </button>
+          )}
         </div>
         <div className="workshop-copy">
           <p className="eyebrow">Oficina Muuv</p>
           <h2 id="workshop-title">Mobilidade elétrica também é <em>cuidado.</em></h2>
-          <p>Na Muuv, o cuidado com a mobilidade vai além da escolha do veículo. Nossa oficina oferece serviços de manutenção para scooters elétricas, e-bikes e patinetes de diferentes marcas, com foco no cuidado, na segurança e no bom funcionamento de cada veículo.</p>
-          <a className="button primary" href="https://wa.me/5515998299220?text=Ol%C3%A1%21%20Acessei%20o%20site%20da%20Muuv%20Sorocaba%20e%20gostaria%20de%20informa%C3%A7%C3%B5es%20sobre%20os%20servi%C3%A7os%20da%20oficina." target="_blank" rel="noreferrer">Fale com nossa oficina <Icon name="arrow" /></a>
+          <p>Nosso compromisso vai muito além da venda. A oficina Muuv está preparada para cuidar da sua elétrica, com suporte e manutenção para scooters, e-bikes e patinetes de todas as marcas, não importa onde você comprou.</p>
+          <div className="workshop-features" aria-label="Diferenciais da oficina">
+            {workshopFeatures.map(([title, text], i) => (
+              <article key={title}>
+                <span>{String(i + 1).padStart(2, "0")}</span>
+                <div>
+                  <h3>{title}</h3>
+                  <p>{text}</p>
+                </div>
+              </article>
+            ))}
+          </div>
+          <p className="workshop-coverage">Atendemos todo o estado de São Paulo. Para outros estados, consulte a disponibilidade.</p>
+          <a className="button primary" href="https://wa.me/5515998299220?text=Ol%C3%A1%21%20Acessei%20o%20site%20da%20Muuv%20Sorocaba%20e%20gostaria%20de%20agendar%20um%20servi%C3%A7o%20na%20oficina." target="_blank" rel="noreferrer">Agende um serviço <Icon name="arrow" /></a>
         </div>
       </div>
     </section>
   )
 }
 
-const faq = [
+type FaqItem = [question: string, answer: string, link?: [label: string, href: string]]
+
+const faq: FaqItem[] = [
   [
     "Como escolher o modelo ideal?",
     "A escolha depende do trajeto, frequência de uso, necessidade de espaço e categoria do veículo. A equipe Muuv te ajudará a fazer a melhor escolha de acordo com a sua necessidade.",
@@ -634,7 +678,8 @@ const faq = [
   ],
   [
     "Como funciona a manutenção?",
-    "(falar sobre como funciona a BRC)",
+    "A oficina Muuv faz a manutenção de scooters elétricas, e-bikes e patinetes de todas as marcas, com atendimento agendado e serviço leva e traz. A primeira revisão preventiva é gratuita para quem compra na Muuv.",
+    ["Conheça a oficina", "#oficina"],
   ],
   [
     "Quais são os benefícios e a garantia?",
@@ -666,7 +711,7 @@ function FAQ() {
         </p>
       </div>
       <div className="accordion">
-        {faq.map(([q, a], i) => (
+        {faq.map(([q, a, link], i) => (
           <article className={open === i ? "is-open" : ""} key={q}>
             <button
               type="button"
@@ -678,7 +723,14 @@ function FAQ() {
               <Icon name="chevron" />
             </button>
             <div className="answer">
-              <p>{a}</p>
+              <p>
+                {a}
+                {link && (
+                  <a className="answer-link" href={link[1]} tabIndex={open === i ? 0 : -1}>
+                    {link[0]} <Icon name="arrow" />
+                  </a>
+                )}
+              </p>
             </div>
           </article>
         ))}
