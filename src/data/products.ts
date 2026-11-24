@@ -163,10 +163,13 @@ export const products: Product[] = [
   },
   {
     id: "muuv-t10", name: "MUUV T10", category: "Triciclos", powerW: 1000,
-    image: "products/muuv-t10.jpeg", alt: "MUUV T10",
+    image: "products/muuv-t10-preta.jpeg", alt: "MUUV T10",
     images: [
-      {src: "/products/muuv-t10.jpeg", alt: "MUUV T10"},
-      {src: "/products/muuv-t10-tras.jpeg", alt: "MUUV T10"},
+      {src: "/products/muuv-t10-preta.jpeg", alt: "MUUV T10", color: "Preto"},
+      {src: "/products/muuv-t10-preta-seat.jpeg", alt: "MUUV T10", color: "Preto"},
+      {src: "/products/muuv-t10-preta-zoom.jpeg", alt: "MUUV T10", color: "Preto"},
+      {src: "/products/muuv-t10-bau.jpeg", alt: "MUUV T10", color: "Prata"},
+      {src: "/products/muuv-t10-prata.jpeg", alt: "MUUV T10", color: "Prata"},
     ],
     manualUrl: "/manuals/t10.pdf",
     description: "Triciclo elétrico com até três lugares, dois bagageiros e banco regulável.", autonomy: "45 km em média", maxSpeed: "32 km/h", battery: "Lítio 23 Ah", maxLoad: "170 kg",
@@ -255,6 +258,12 @@ export const products: Product[] = [
   {
     id: "muuv-l12-2000", name: "MUUV L12 2000W", category: "Patinetes", powerW: 2000,
     image: "/products/muuv-l12.jpeg", alt: "MUUV L12 2000W",
+    images: [
+      {src: "/products/muuv-l12.jpeg", alt: "MUUV L12 2000W"},
+      {src: "/products/muuv-l12-tras.jpeg", alt: "MUUV L12 2000W"},
+      {src: "/products/muuv-l12-farol.jpeg", alt: "MUUV L12 2000W"},
+      {src: "/products/muuv-l12-roda.jpeg", alt: "MUUV L12 2000W"},
+    ],
     description: "Patinete elétrico com motor duplo e suspensão dianteira e traseira.", autonomy: "60 km", maxSpeed: "Até 75 km/h (mediante solicitação de desbloqueio)", battery: "Lítio 48 V · 20 Ah", maxLoad: "150 kg",
     highlights: ["Motor duplo de 1000 W", "Painel digital com indicador de velocidade e nível de bateria", "Farol em LED", "Suspensão dianteira e traseira", "Velocidade de 75 km/h mediante solicitação de desbloqueio"],
   },
@@ -284,7 +293,14 @@ export const products: Product[] = [
   },
   {
     id: "muuv-t2", name: "MUUV T2", category: "Patinetes", powerW: 800,
-    image: "/products/muuv-t2-pro.jpeg", alt: "MUUV T2",
+    image: "/products/muuv-t2.jpeg", alt: "MUUV T2",
+    images: [
+      {src: "/products/muuv-t2.jpeg", alt: "MUUV T2"},
+      {src: "/products/muuv-t2-tras.jpeg", alt: "MUUV T2"},
+      {src: "/products/muuv-t2-painel.jpeg", alt: "MUUV T2"},
+      {src: "/products/muuv-t2-farol.jpeg", alt: "MUUV T2"},
+      {src: "/products/muuv-t2-zoom.jpeg", alt: "MUUV T2"},
+    ],
     description: "Patinete elétrico com painel digital, farol em LED e suspensão dianteira e traseira.", autonomy: "30 km", maxSpeed: "60 km/h", battery: "Lítio 48 V · 18 Ah", maxLoad: "150 kg",
     highlights: ["Motor de 800 W (pico de 1000 W)", "Painel digital com indicador de velocidade e nível de bateria", "Farol em LED", "Suspensão dianteira e traseira", "Confirmar classificação e requisitos legais para o modelo de 60 km/h antes de afirmar dispensa de CNH/emplacamento."],
   },
